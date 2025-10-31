@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CarWash")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b9c47b007aa1b5b898b4adeb499b633be6dbd565")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d094d34ff781363b852896b418debd325ede26b3")]
 [assembly: System.Reflection.AssemblyProductAttribute("CarWash")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CarWash")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
