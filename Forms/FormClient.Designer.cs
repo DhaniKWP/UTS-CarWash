@@ -30,7 +30,6 @@
         {
             lblTitle = new Label();
             btnAdd = new Button();
-            btnUpdate = new Button();
             btnDelete = new Button();
             dgvClients = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dgvClients).BeginInit();
@@ -63,18 +62,6 @@
             btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
             // 
-            // btnUpdate
-            // 
-            btnUpdate.BackColor = Color.DodgerBlue;
-            btnUpdate.ForeColor = SystemColors.ButtonHighlight;
-            btnUpdate.Location = new Point(475, 13);
-            btnUpdate.Margin = new Padding(4);
-            btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(179, 44);
-            btnUpdate.TabIndex = 6;
-            btnUpdate.Text = "Update data client";
-            btnUpdate.UseVisualStyleBackColor = false;
-            // 
             // btnDelete
             // 
             btnDelete.BackColor = SystemColors.Highlight;
@@ -106,7 +93,6 @@
             ClientSize = new Size(1230, 590);
             Controls.Add(dgvClients);
             Controls.Add(btnDelete);
-            Controls.Add(btnUpdate);
             Controls.Add(btnAdd);
             Controls.Add(lblTitle);
             Margin = new Padding(4);
@@ -121,7 +107,6 @@
 
         private Label lblTitle;
         private Button btnAdd;
-        private Button btnUpdate;
         private Button btnDelete;
         private DataGridView dgvClients;
     }
