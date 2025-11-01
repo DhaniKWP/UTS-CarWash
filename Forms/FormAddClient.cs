@@ -16,15 +16,14 @@ namespace CarWash.Forms
         {
             InitializeComponent();
         }
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnSubmit_Click(object sender, EventArgs e)
         {
             // logika simpan data
             MessageBox.Show("Data berhasil disimpan!");
             this.DialogResult = DialogResult.OK; // biar bisa diketahui hasilnya
             this.Close();
         }
-
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void btnCancel_Click_1(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
