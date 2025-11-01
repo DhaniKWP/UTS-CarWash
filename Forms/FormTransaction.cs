@@ -26,5 +26,23 @@ namespace CarWash.Forms
         {
 
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            using (var form = new FormSubmitTransaction())
+            {
+                form.TransactionId = "added";
+
+                var result = form.ShowDialog(); // tampilkan sebagai popup modal
+
+                if (result == DialogResult.OK)
+                {
+                    //string message = $"Customer: {form.CustomerName}\nService: {form.ServiceType}\nPrice: Rp {form.Price:N0}";
+                    //MessageBox.Show(message, "Transaction Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // TODO: kamu bisa lanjut masukkan ke database atau DataGridView di sini
+                }
+            }
+        }
     }
 }
