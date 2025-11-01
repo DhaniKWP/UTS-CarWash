@@ -67,7 +67,7 @@
             btnPackage.Name = "btnPackage";
             btnPackage.Size = new Size(198, 68);
             btnPackage.TabIndex = 2;
-            btnPackage.Text = "PACCKAGE";
+            btnPackage.Text = "PACKAGE";
             btnPackage.UseVisualStyleBackColor = false;
             // 
             // btnTransaction
