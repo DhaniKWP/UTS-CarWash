@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace CarWash.Forms
 {
-    public partial class FormTransaction: Form
+    public partial class FormTransaction : Form
     {
         public FormTransaction()
         {
             InitializeComponent();
+        }
+
+        private void dgvTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void FormTransaction_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

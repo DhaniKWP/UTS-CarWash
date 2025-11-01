@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace CarWash.Forms
 {
-    public partial class FormClient: Form
+    public partial class FormClient : Form
     {
         public FormClient()
         {
             InitializeComponent();
+        }
+
+        private void txtPlate_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

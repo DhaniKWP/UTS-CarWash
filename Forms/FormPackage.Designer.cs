@@ -36,6 +36,9 @@
             btnUpdate = new Button();
             btnDelete = new Button();
             dgvPackages = new DataGridView();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvPackages).BeginInit();
             SuspendLayout();
             // 
@@ -45,7 +48,7 @@
             lblTitle.BackColor = Color.Silver;
             lblTitle.Font = new Font("Wide Latin", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitle.ForeColor = Color.Red;
-            lblTitle.Location = new Point(130, 24);
+            lblTitle.Location = new Point(214, 27);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(568, 27);
             lblTitle.TabIndex = 0;
@@ -55,21 +58,21 @@
             // 
             // txtPackageName
             // 
-            txtPackageName.Location = new Point(56, 104);
+            txtPackageName.Location = new Point(313, 78);
             txtPackageName.Name = "txtPackageName";
             txtPackageName.Size = new Size(220, 31);
             txtPackageName.TabIndex = 1;
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(56, 150);
+            txtDescription.Location = new Point(313, 128);
             txtDescription.Name = "txtDescription";
             txtDescription.Size = new Size(220, 31);
             txtDescription.TabIndex = 2;
             // 
             // txtPrice
             // 
-            txtPrice.Location = new Point(56, 198);
+            txtPrice.Location = new Point(594, 78);
             txtPrice.Name = "txtPrice";
             txtPrice.Size = new Size(220, 31);
             txtPrice.TabIndex = 3;
@@ -79,7 +82,7 @@
             // 
             btnAdd.BackColor = SystemColors.HotTrack;
             btnAdd.ForeColor = SystemColors.Control;
-            btnAdd.Location = new Point(31, 264);
+            btnAdd.Location = new Point(252, 211);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(112, 34);
             btnAdd.TabIndex = 4;
@@ -90,7 +93,7 @@
             // 
             btnUpdate.BackColor = SystemColors.HotTrack;
             btnUpdate.ForeColor = SystemColors.Control;
-            btnUpdate.Location = new Point(102, 329);
+            btnUpdate.Location = new Point(612, 211);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(112, 34);
             btnUpdate.TabIndex = 5;
@@ -101,7 +104,7 @@
             // 
             btnDelete.BackColor = SystemColors.HotTrack;
             btnDelete.ForeColor = SystemColors.Control;
-            btnDelete.Location = new Point(183, 264);
+            btnDelete.Location = new Point(436, 211);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(112, 34);
             btnDelete.TabIndex = 6;
@@ -112,19 +115,48 @@
             // 
             dgvPackages.BackgroundColor = SystemColors.ButtonFace;
             dgvPackages.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPackages.Location = new Point(339, 91);
+            dgvPackages.Location = new Point(177, 267);
             dgvPackages.Name = "dgvPackages";
             dgvPackages.RowHeadersWidth = 62;
-            dgvPackages.Size = new Size(405, 316);
+            dgvPackages.Size = new Size(637, 302);
             dgvPackages.TabIndex = 7;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(205, 84);
+            label1.Name = "label1";
+            label1.Size = new Size(59, 25);
+            label1.TabIndex = 8;
+            label1.Text = "Name";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(205, 134);
+            label2.Name = "label2";
+            label2.Size = new Size(102, 25);
+            label2.TabIndex = 9;
+            label2.Text = "Description";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(539, 78);
+            label3.Name = "label3";
+            label3.Size = new Size(49, 25);
+            label3.TabIndex = 10;
+            label3.Text = "Price";
             // 
             // FormPackage
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            BackgroundImage = Properties.Resources.Azia_Riza__;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1037, 581);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(dgvPackages);
             Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
@@ -150,5 +182,8 @@
         private Button btnUpdate;
         private Button btnDelete;
         private DataGridView dgvPackages;
+        private Label label1;
+        private Label label2;
+        private Label label3;
     }
 }
