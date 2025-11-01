@@ -82,7 +82,7 @@
             // 
             btnAdd.BackColor = SystemColors.HotTrack;
             btnAdd.ForeColor = SystemColors.Control;
-            btnAdd.Location = new Point(252, 211);
+            btnAdd.Location = new Point(252, 186);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(112, 34);
             btnAdd.TabIndex = 4;
@@ -93,7 +93,7 @@
             // 
             btnUpdate.BackColor = SystemColors.HotTrack;
             btnUpdate.ForeColor = SystemColors.Control;
-            btnUpdate.Location = new Point(612, 211);
+            btnUpdate.Location = new Point(614, 186);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(112, 34);
             btnUpdate.TabIndex = 5;
@@ -104,7 +104,7 @@
             // 
             btnDelete.BackColor = SystemColors.HotTrack;
             btnDelete.ForeColor = SystemColors.Control;
-            btnDelete.Location = new Point(436, 211);
+            btnDelete.Location = new Point(436, 186);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(112, 34);
             btnDelete.TabIndex = 6;
@@ -115,10 +115,10 @@
             // 
             dgvPackages.BackgroundColor = SystemColors.ButtonFace;
             dgvPackages.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPackages.Location = new Point(177, 267);
+            dgvPackages.Location = new Point(177, 226);
             dgvPackages.Name = "dgvPackages";
             dgvPackages.RowHeadersWidth = 62;
-            dgvPackages.Size = new Size(637, 302);
+            dgvPackages.Size = new Size(637, 230);
             dgvPackages.TabIndex = 7;
             // 
             // label1
@@ -153,7 +153,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(1037, 581);
+            ClientSize = new Size(1037, 471);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);

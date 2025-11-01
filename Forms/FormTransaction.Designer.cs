@@ -70,7 +70,7 @@
             // 
             btnAdd.BackColor = SystemColors.HotTrack;
             btnAdd.ForeColor = SystemColors.Control;
-            btnAdd.Location = new Point(182, 259);
+            btnAdd.Location = new Point(182, 231);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(171, 34);
             btnAdd.TabIndex = 3;
@@ -81,7 +81,7 @@
             // 
             btnDelete.BackColor = SystemColors.HotTrack;
             btnDelete.ForeColor = SystemColors.Control;
-            btnDelete.Location = new Point(525, 259);
+            btnDelete.Location = new Point(523, 231);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(171, 34);
             btnDelete.TabIndex = 4;
@@ -92,10 +92,10 @@
             // 
             dgvTransactions.BackgroundColor = SystemColors.Control;
             dgvTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvTransactions.Location = new Point(123, 299);
+            dgvTransactions.Location = new Point(123, 271);
             dgvTransactions.Name = "dgvTransactions";
             dgvTransactions.RowHeadersWidth = 62;
-            dgvTransactions.Size = new Size(620, 250);
+            dgvTransactions.Size = new Size(620, 186);
             dgvTransactions.TabIndex = 5;
             dgvTransactions.CellContentClick += dgvTransactions_CellContentClick;
             // 
@@ -151,7 +151,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
-            ClientSize = new Size(899, 561);
+            ClientSize = new Size(899, 476);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);

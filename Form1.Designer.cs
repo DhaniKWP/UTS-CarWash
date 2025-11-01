@@ -28,59 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblTitle = new Label();
-            btnClient = new Button();
-            btnPackage = new Button();
-            btnTransaction = new Button();
+            menuStrip1 = new MenuStrip();
+            pACKAGEToolStripMenuItem = new ToolStripMenuItem();
+            cLIENTToolStripMenuItem = new ToolStripMenuItem();
+            tRANSAKSIToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // lblTitle
+            // menuStrip1
             // 
-            lblTitle.AutoSize = true;
-            lblTitle.BackColor = Color.Transparent;
-            lblTitle.Font = new Font("Cooper Black", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTitle.ForeColor = SystemColors.HotTrack;
-            lblTitle.Location = new Point(35, 34);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(162, 25);
-            lblTitle.TabIndex = 0;
-            lblTitle.Text = "JETWASH ID";
+            menuStrip1.BackColor = SystemColors.ActiveCaption;
+            menuStrip1.ImageScalingSize = new Size(24, 24);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { pACKAGEToolStripMenuItem, cLIENTToolStripMenuItem, tRANSAKSIToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1076, 33);
+            menuStrip1.TabIndex = 4;
+            menuStrip1.Text = "menuStrip1";
             // 
-            // btnClient
+            // pACKAGEToolStripMenuItem
             // 
-            btnClient.BackColor = SystemColors.HotTrack;
-            btnClient.Font = new Font("Segoe UI Black", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnClient.ForeColor = SystemColors.Control;
-            btnClient.Location = new Point(722, 358);
-            btnClient.Name = "btnClient";
-            btnClient.Size = new Size(197, 68);
-            btnClient.TabIndex = 1;
-            btnClient.Text = " CLIENT";
-            btnClient.UseVisualStyleBackColor = false;
+            pACKAGEToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            pACKAGEToolStripMenuItem.Name = "pACKAGEToolStripMenuItem";
+            pACKAGEToolStripMenuItem.Size = new Size(92, 29);
+            pACKAGEToolStripMenuItem.Text = "Package";
+            pACKAGEToolStripMenuItem.Click += pACKAGEToolStripMenuItem_Click;
             // 
-            // btnPackage
+            // cLIENTToolStripMenuItem
             // 
-            btnPackage.BackColor = SystemColors.HotTrack;
-            btnPackage.Font = new Font("Segoe UI Black", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPackage.ForeColor = SystemColors.Control;
-            btnPackage.Location = new Point(721, 238);
-            btnPackage.Name = "btnPackage";
-            btnPackage.Size = new Size(198, 68);
-            btnPackage.TabIndex = 2;
-            btnPackage.Text = "PACKAGE";
-            btnPackage.UseVisualStyleBackColor = false;
+            cLIENTToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cLIENTToolStripMenuItem.Name = "cLIENTToolStripMenuItem";
+            cLIENTToolStripMenuItem.Size = new Size(72, 29);
+            cLIENTToolStripMenuItem.Text = "Client";
+            cLIENTToolStripMenuItem.Click += cLIENTToolStripMenuItem_Click;
             // 
-            // btnTransaction
+            // tRANSAKSIToolStripMenuItem
             // 
-            btnTransaction.BackColor = SystemColors.HotTrack;
-            btnTransaction.Font = new Font("Segoe UI Black", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnTransaction.ForeColor = SystemColors.Control;
-            btnTransaction.Location = new Point(721, 122);
-            btnTransaction.Name = "btnTransaction";
-            btnTransaction.Size = new Size(198, 68);
-            btnTransaction.TabIndex = 3;
-            btnTransaction.Text = "TRANSAKSI";
-            btnTransaction.UseVisualStyleBackColor = false;
+            tRANSAKSIToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tRANSAKSIToolStripMenuItem.Name = "tRANSAKSIToolStripMenuItem";
+            tRANSAKSIToolStripMenuItem.Size = new Size(98, 29);
+            tRANSAKSIToolStripMenuItem.Text = "Transaksi";
+            tRANSAKSIToolStripMenuItem.Click += tRANSAKSIToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -89,23 +77,22 @@
             BackColor = SystemColors.AppWorkspace;
             BackgroundImage = Properties.Resources.png_clipart_staff_in_the_car_wash_blue_hat_free_buckle_material;
             ClientSize = new Size(1076, 586);
-            Controls.Add(btnTransaction);
-            Controls.Add(btnPackage);
-            Controls.Add(btnClient);
-            Controls.Add(lblTitle);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Margin = new Padding(2);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label lblTitle;
-        private Button btnClient;
-        private Button btnPackage;
-        private Button btnTransaction;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem tRANSAKSIToolStripMenuItem;
+        private ToolStripMenuItem pACKAGEToolStripMenuItem;
+        private ToolStripMenuItem cLIENTToolStripMenuItem;
     }
 }

@@ -89,7 +89,7 @@
             // 
             btnAdd.BackColor = SystemColors.Highlight;
             btnAdd.ForeColor = SystemColors.ButtonHighlight;
-            btnAdd.Location = new Point(207, 217);
+            btnAdd.Location = new Point(205, 178);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(143, 34);
             btnAdd.TabIndex = 5;
@@ -100,7 +100,7 @@
             // 
             btnUpdate.BackColor = Color.DodgerBlue;
             btnUpdate.ForeColor = SystemColors.ButtonHighlight;
-            btnUpdate.Location = new Point(554, 217);
+            btnUpdate.Location = new Point(563, 178);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(138, 34);
             btnUpdate.TabIndex = 6;
@@ -111,7 +111,7 @@
             // 
             btnDelete.BackColor = SystemColors.Highlight;
             btnDelete.ForeColor = SystemColors.ButtonHighlight;
-            btnDelete.Location = new Point(385, 217);
+            btnDelete.Location = new Point(380, 178);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(138, 34);
             btnDelete.TabIndex = 7;
@@ -122,10 +122,10 @@
             // 
             dgvClients.BackgroundColor = SystemColors.ButtonHighlight;
             dgvClients.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvClients.Location = new Point(124, 257);
+            dgvClients.Location = new Point(124, 228);
             dgvClients.Name = "dgvClients";
             dgvClients.RowHeadersWidth = 62;
-            dgvClients.Size = new Size(664, 277);
+            dgvClients.Size = new Size(664, 222);
             dgvClients.TabIndex = 8;
             // 
             // label1
@@ -169,7 +169,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
-            ClientSize = new Size(946, 546);
+            ClientSize = new Size(946, 461);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
