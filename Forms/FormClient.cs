@@ -21,5 +21,24 @@ namespace CarWash.Forms
         {
 
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            using (var form = new FormAddClient())
+            {
+                var result = form.ShowDialog(); // ini tampilkan sebagai modal
+
+                if (result == DialogResult.OK)
+                {
+                    // Misal reload data di datagrid setelah user save
+                    //LoadClientData();
+                }
+            }
+        }
+
+        private void lblTitle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
