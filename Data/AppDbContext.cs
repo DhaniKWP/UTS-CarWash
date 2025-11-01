@@ -17,7 +17,7 @@ namespace CarWash.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=db_vb2_car_wash;Username=postgres;Password=admin");
+            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=db_vb2_car_wash;Username=postgres;Password=miftahulrizky");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
