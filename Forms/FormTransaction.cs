@@ -50,7 +50,6 @@ namespace CarWash.Forms
                             {
                                 t.Id,
                                 t.Code,
-                                t.PlateNumber,
                                 Package = p.Description,
                                 t.Price
                             })
@@ -61,7 +60,6 @@ namespace CarWash.Forms
                             No = index + 1,
                             t.Id,
                             Code = t.Code,
-                            Plate = t.PlateNumber,
                             t.Package,
                             t.Price
                         })

@@ -16,7 +16,9 @@ namespace CarWash.Models
         public int Id { get; set; }
 
         public string Code { get; set; }
-        public string PlateNumber { get; set; }
+
+        public int ClientId { get; set; }
+        public Client Client { get; set; }
 
         public int PackageId { get; set; }
         public Package Package { get; set; } 
