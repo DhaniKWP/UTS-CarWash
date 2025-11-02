@@ -1,4 +1,5 @@
 ﻿using CarWash.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -218,9 +219,16 @@ namespace CarWash.Forms
                     using (var db = new AppDbContext())
                     {
                         var pkg = db.Packages.FirstOrDefault(p => p.Id == packageId);
+                        var trans = db.Transactions.FirstOrDefault(t=>t.PackageId == packageId);
 
                         if (pkg != null)
                         {
+                            if (trans !=null)
+                            {
+                               MessageBox.Show("Oops..., this data is already in use, you cannot delete it..","Information",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                                return;
+                            }
+
                             db.Packages.Remove(pkg);
                             db.SaveChanges();
 
@@ -231,7 +239,7 @@ namespace CarWash.Forms
                                 MessageBoxIcon.Information
                             );
 
-                            LoadPackages(); // Refresh data grid
+                            LoadPackages();
                         }
                         else
                         {

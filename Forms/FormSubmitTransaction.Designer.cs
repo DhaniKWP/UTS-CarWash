@@ -40,7 +40,9 @@
             txtPackage = new TextBox();
             btnSearchPackage = new Button();
             txtPackageId = new TextBox();
-            txtPlate = new TextBox();
+            txtClient = new TextBox();
+            txtClientId = new TextBox();
+            btnSearchClient = new Button();
             SuspendLayout();
             // 
             // label1
@@ -48,9 +50,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(32, 116);
             label1.Name = "label1";
-            label1.Size = new Size(120, 25);
+            label1.Size = new Size(56, 25);
             label1.TabIndex = 0;
-            label1.Text = "Plate Number";
+            label1.Text = "Client";
             // 
             // label2
             // 
@@ -88,6 +90,7 @@
             btnSubmit.TabIndex = 6;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = false;
+            btnSubmit.Click += btnSubmit_Click;
             // 
             // btnCancel
             // 
@@ -128,16 +131,16 @@
             // 
             // txtPackage
             // 
-            txtPackage.Location = new Point(35, 225);
+            txtPackage.Location = new Point(107, 225);
             txtPackage.Name = "txtPackage";
             txtPackage.ReadOnly = true;
-            txtPackage.Size = new Size(432, 31);
+            txtPackage.Size = new Size(458, 31);
             txtPackage.TabIndex = 11;
             // 
             // btnSearchPackage
             // 
             btnSearchPackage.BackColor = SystemColors.ActiveCaption;
-            btnSearchPackage.Location = new Point(473, 223);
+            btnSearchPackage.Location = new Point(571, 222);
             btnSearchPackage.Name = "btnSearchPackage";
             btnSearchPackage.Size = new Size(92, 34);
             btnSearchPackage.TabIndex = 12;
@@ -147,25 +150,47 @@
             // 
             // txtPackageId
             // 
-            txtPackageId.Location = new Point(571, 225);
+            txtPackageId.Location = new Point(37, 226);
             txtPackageId.Name = "txtPackageId";
             txtPackageId.ReadOnly = true;
-            txtPackageId.Size = new Size(92, 31);
+            txtPackageId.Size = new Size(64, 31);
             txtPackageId.TabIndex = 13;
             // 
-            // txtPlate
+            // txtClient
             // 
-            txtPlate.Location = new Point(37, 144);
-            txtPlate.Name = "txtPlate";
-            txtPlate.Size = new Size(626, 31);
-            txtPlate.TabIndex = 14;
+            txtClient.Location = new Point(107, 144);
+            txtClient.Name = "txtClient";
+            txtClient.ReadOnly = true;
+            txtClient.Size = new Size(458, 31);
+            txtClient.TabIndex = 14;
+            // 
+            // txtClientId
+            // 
+            txtClientId.Location = new Point(37, 144);
+            txtClientId.Name = "txtClientId";
+            txtClientId.ReadOnly = true;
+            txtClientId.Size = new Size(64, 31);
+            txtClientId.TabIndex = 16;
+            // 
+            // btnSearchClient
+            // 
+            btnSearchClient.BackColor = SystemColors.ActiveCaption;
+            btnSearchClient.Location = new Point(571, 141);
+            btnSearchClient.Name = "btnSearchClient";
+            btnSearchClient.Size = new Size(92, 34);
+            btnSearchClient.TabIndex = 15;
+            btnSearchClient.Text = "Search";
+            btnSearchClient.UseVisualStyleBackColor = false;
+            btnSearchClient.Click += btnSearchClient_Click;
             // 
             // FormSubmitTransaction
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(713, 518);
-            Controls.Add(txtPlate);
+            Controls.Add(txtClientId);
+            Controls.Add(btnSearchClient);
+            Controls.Add(txtClient);
             Controls.Add(txtPackageId);
             Controls.Add(btnSearchPackage);
             Controls.Add(txtPackage);
@@ -199,6 +224,8 @@
         private TextBox txtPackage;
         private Button btnSearchPackage;
         private TextBox txtPackageId;
-        private TextBox txtPlate;
+        private TextBox txtClient;
+        private TextBox txtClientId;
+        private Button btnSearchClient;
     }
 }

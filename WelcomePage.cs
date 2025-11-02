@@ -63,12 +63,6 @@ namespace CarWash
             OpenChildForm(new FormPackage());
         }
 
-        // 🔹 Event Klik Menu CLIENT
-        //private void cLIENTToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    SetActiveMenu(cLIENTToolStripMenuItem);
-        //    OpenChildForm(new FormClient());
-        //}
 
         // 🔹 Fungsi untuk membuka form di dalam MDI container
         private void OpenChildForm(Form childForm)
@@ -83,6 +77,12 @@ namespace CarWash
             childForm.MdiParent = this;
             childForm.Dock = DockStyle.Fill;
             childForm.Show();
+        }
+
+        private void clientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetActiveMenu(clientToolStripMenuItem);
+            OpenChildForm(new FormClient());
         }
     }
 }

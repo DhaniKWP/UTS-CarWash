@@ -59,6 +59,7 @@
             btnDelete.TabIndex = 4;
             btnDelete.Text = "Delete Transaction";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // dgvTransactions
             // 
@@ -70,7 +71,7 @@
             dgvTransactions.RowHeadersWidth = 62;
             dgvTransactions.Size = new Size(866, 333);
             dgvTransactions.TabIndex = 5;
-            dgvTransactions.CellContentClick += dgvTransactions_CellContentClick;
+            
             // 
             // label1
             // 

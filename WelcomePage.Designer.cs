@@ -32,6 +32,7 @@
             menuStrip1 = new MenuStrip();
             pACKAGEToolStripMenuItem = new ToolStripMenuItem();
             tRANSAKSIToolStripMenuItem = new ToolStripMenuItem();
+            clientToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -39,7 +40,7 @@
             // 
             menuStrip1.BackColor = SystemColors.ActiveCaption;
             menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { pACKAGEToolStripMenuItem, tRANSAKSIToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { clientToolStripMenuItem, pACKAGEToolStripMenuItem, tRANSAKSIToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1076, 46);
@@ -61,6 +62,14 @@
             tRANSAKSIToolStripMenuItem.Size = new Size(173, 42);
             tRANSAKSIToolStripMenuItem.Text = "Transaction";
             tRANSAKSIToolStripMenuItem.Click += tRANSAKSIToolStripMenuItem_Click;
+            // 
+            // clientToolStripMenuItem
+            // 
+            clientToolStripMenuItem.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            clientToolStripMenuItem.Name = "clientToolStripMenuItem";
+            clientToolStripMenuItem.Size = new Size(104, 42);
+            clientToolStripMenuItem.Text = "Client";
+            clientToolStripMenuItem.Click += clientToolStripMenuItem_Click;
             // 
             // WelcomePage
             // 
@@ -85,5 +94,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem tRANSAKSIToolStripMenuItem;
         private ToolStripMenuItem pACKAGEToolStripMenuItem;
+        private ToolStripMenuItem clientToolStripMenuItem;
     }
 }

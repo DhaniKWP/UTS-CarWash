@@ -1,6 +1,6 @@
 ﻿namespace CarWash.Forms
 {
-    partial class FormSearchPackage
+    partial class FormSearchClient
     {
         /// <summary>
         /// Required designer variable.
@@ -28,28 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dgvSearchPackage = new DataGridView();
+            dgvSearchClient = new DataGridView();
             btnCancel = new Button();
             btnSelect = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgvSearchPackage).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvSearchClient).BeginInit();
             SuspendLayout();
             // 
-            // dgvSearchPackage
+            // dgvSearchClient
             // 
-            dgvSearchPackage.BackgroundColor = Color.White;
-            dgvSearchPackage.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSearchPackage.Location = new Point(24, 38);
-            dgvSearchPackage.Name = "dgvSearchPackage";
-            dgvSearchPackage.RowHeadersWidth = 62;
-            dgvSearchPackage.Size = new Size(1353, 411);
-            dgvSearchPackage.TabIndex = 0;
-            dgvSearchPackage.CellContentDoubleClick += dgvSearchPackage_CellContentDoubleClick;
+            dgvSearchClient.BackgroundColor = Color.White;
+            dgvSearchClient.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSearchClient.GridColor = SystemColors.WindowText;
+            dgvSearchClient.Location = new Point(33, 30);
+            dgvSearchClient.Name = "dgvSearchClient";
+            dgvSearchClient.RowHeadersWidth = 62;
+            dgvSearchClient.Size = new Size(1340, 437);
+            dgvSearchClient.TabIndex = 0;
+            dgvSearchClient.CellContentDoubleClick += dgvSearchClient_CellContentDoubleClick;
             // 
             // btnCancel
             // 
             btnCancel.BackColor = Color.Red;
             btnCancel.ForeColor = Color.White;
-            btnCancel.Location = new Point(1206, 483);
+            btnCancel.Location = new Point(1202, 502);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(171, 62);
             btnCancel.TabIndex = 1;
@@ -61,32 +62,32 @@
             // 
             btnSelect.BackColor = Color.DodgerBlue;
             btnSelect.ForeColor = Color.White;
-            btnSelect.Location = new Point(1007, 483);
+            btnSelect.Location = new Point(1005, 502);
             btnSelect.Name = "btnSelect";
             btnSelect.Size = new Size(171, 62);
             btnSelect.TabIndex = 2;
             btnSelect.Text = "Select";
             btnSelect.UseVisualStyleBackColor = false;
-            btnSelect.Click += button2_Click;
+            btnSelect.Click += btnSelect_Click;
             // 
-            // FormSearchPackage
+            // FormSearchClient
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1403, 582);
+            ClientSize = new Size(1406, 597);
             Controls.Add(btnSelect);
             Controls.Add(btnCancel);
-            Controls.Add(dgvSearchPackage);
-            Name = "FormSearchPackage";
-            Text = "Select Package";
-            Load += FormSearchPackage_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvSearchPackage).EndInit();
+            Controls.Add(dgvSearchClient);
+            Name = "FormSearchClient";
+            Text = "FormSearchClient";
+            Load += FormSearchClient_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvSearchClient).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dgvSearchPackage;
+        private DataGridView dgvSearchClient;
         private Button btnCancel;
         private Button btnSelect;
     }

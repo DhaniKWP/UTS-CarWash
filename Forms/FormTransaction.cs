@@ -51,7 +51,8 @@ namespace CarWash.Forms
                                 t.Id,
                                 t.Code,
                                 Package = p.Description,
-                                t.Price
+                                t.Price,
+                                t.CreatedAt
                             })
                         .OrderByDescending(t => t.Id)
                         .ToList() // ⬅️ Query SQL dieksekusi di sini (sekali saja)
@@ -61,7 +62,8 @@ namespace CarWash.Forms
                             t.Id,
                             Code = t.Code,
                             t.Package,
-                            t.Price
+                            t.Price,
+                            CreatedAt = t.CreatedAt.ToLocalTime().ToString("dd/MM/yyyy HH:mm")
                         })
                         .ToList(); // ⬅️ Nomor urut ditambahkan di memori
 
@@ -83,9 +85,9 @@ namespace CarWash.Forms
                             dgvTransactions.Columns["No"].Width = 10;
                             dgvTransactions.Columns["Id"].Width = 10;
                             dgvTransactions.Columns["Code"].Width = 15;
-                            dgvTransactions.Columns["Plate"].Width = 15;
                             dgvTransactions.Columns["Package"].Width = 30;
                             dgvTransactions.Columns["Price"].Width = 20;
+                            dgvTransactions.Columns["CreatedAt"].Width = 20;
                         }
 
                         // 🔹 Atur agar kolom otomatis menyesuaikan lebar tabel
@@ -128,14 +130,67 @@ namespace CarWash.Forms
 
                 if (result == DialogResult.OK)
                 {
-                    
+                    LoadTransactions();
                 }
             }
         }
 
-        private void dgvTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvTransactions.SelectedRows.Count > 0 && dgvTransactions.CurrentRow != null && dgvTransactions.CurrentRow.Index >= 0)
+            {
+                int transid = Convert.ToInt32(dgvTransactions.CurrentRow.Cells["Id"].Value);
+
+                // Konfirmasi sebelum hapus
+                var confirm = MessageBox.Show(
+                    "Are you sure you want to delete this data?",
+                    "Confirm Delete",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (confirm == DialogResult.Yes)
+                {
+                    using (var db = new AppDbContext())
+                    {
+                        var trans = db.Transactions.FirstOrDefault(p => p.Id == transid);
+
+                        if (trans != null) 
+                        {
+                            db.Transactions.Remove(trans);
+                            db.SaveChanges();
+
+                            MessageBox.Show(
+                               "Data deleted successfully.",
+                               "Information",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information
+                            );
+
+                            LoadTransactions();
+                        }
+                        else
+                        {
+                            MessageBox.Show(
+                              "Data not found or has been previously deleted.",
+                              "Warning",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning
+                          );
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Please select the data you wish to delete first.",
+                    "Information",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+            }
         }
     }
 }

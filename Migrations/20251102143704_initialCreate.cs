@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
@@ -7,12 +6,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CarWash.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class initialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-
             migrationBuilder.CreateTable(
                 name: "Clients",
                 columns: table => new
@@ -27,7 +25,6 @@ namespace CarWash.Migrations
                 {
                     table.PrimaryKey("PK_Clients", x => x.Id);
                 });
-
 
             migrationBuilder.CreateTable(
                 name: "Packages",
@@ -69,6 +66,8 @@ namespace CarWash.Migrations
             migrationBuilder.DropTable(
                 name: "Transactions");
 
+            migrationBuilder.DropTable(
+                name: "Clients");
 
             migrationBuilder.DropTable(
                 name: "Packages");

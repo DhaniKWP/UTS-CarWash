@@ -1,4 +1,5 @@
 ﻿using CarWash.Data;
+using CarWash.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -92,18 +93,15 @@ namespace CarWash.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal memuat data paket: " + ex.Message);
+                MessageBox.Show("Gagal memuat data: " + ex.Message);
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
+
 
         public string SelectedPackageId { get; private set; }
         public string SelectedDescription { get; private set; }
+        public string SelectedPrice { get; private set; }
         private void dgvSearchPackage_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0) // pastikan baris valid
@@ -113,10 +111,40 @@ namespace CarWash.Forms
                 // Ambil ID dan Description
                 SelectedPackageId = selectedRow.Cells["ID"].Value.ToString();
                 SelectedDescription = selectedRow.Cells["Description"].Value.ToString();
+                SelectedPrice = selectedRow.Cells["Price"].Value.ToString();
 
                 this.DialogResult = DialogResult.OK; // Tutup popup dengan hasil OK
                 this.Close();
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (dgvSearchPackage.SelectedRows.Count > 0 && dgvSearchPackage.CurrentRow != null && dgvSearchPackage.CurrentRow.Index >= 0)
+            {
+                int pckgid = Convert.ToInt32(dgvSearchPackage.CurrentRow.Cells["ID"].Value);
+
+                using (var db = new AppDbContext())
+                {
+                    var data = db.Packages.FirstOrDefault(p => p.Id == pckgid);
+                    if (data != null)
+                    {
+                        SelectedPackageId = data.Id.ToString();
+                        SelectedDescription = data.Description;
+                        SelectedPrice = data.Price.ToString();
+
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                }
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
     }
 }

@@ -15,6 +15,9 @@ namespace CarWash.Forms
         public FormClient()
         {
             InitializeComponent();
+            this.ControlBox = false;
+            this.Text = "";
+            this.FormBorderStyle = FormBorderStyle.None;
         }
     }
 }
