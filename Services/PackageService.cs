@@ -21,7 +21,7 @@ namespace CarWash.Services
 
         public Package GetPackageById(int id)
         {
-            return _context.Packages.FirstOrDefault(p => p.PackageId == id);
+            return _context.Packages.FirstOrDefault(p => p.Id == id);
         }
 
         public void AddPackage(Package package)
@@ -38,7 +38,7 @@ namespace CarWash.Services
 
         public void DeletePackage(int id)
         {
-            var package = _context.Packages.FirstOrDefault(p => p.PackageId == id);
+            var package = _context.Packages.FirstOrDefault(p => p.Id == id);
             if (package != null)
             {
                 _context.Packages.Remove(package);

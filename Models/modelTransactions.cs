@@ -3,20 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace CarWash.Models
 {
     public class Transaction
     {
-        public int TransactionId { get; set; }
-        public DateTime TransactionDate { get; set; } = DateTime.Now;
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
 
-        public int ClientId { get; set; }
-        public Client Client { get; set; }
+        public string Code { get; set; }
+        public string PlateNumber { get; set; }
 
         public int PackageId { get; set; }
-        public Package Package { get; set; }
+        public Package Package { get; set; } 
 
-        public decimal TotalPrice { get; set; }
+        public decimal Price { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
     }
 }

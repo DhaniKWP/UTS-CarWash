@@ -16,28 +16,28 @@ namespace CarWash.Services
             _context = new AppDbContext();
         }
 
-        public List<Transaction> GetAllTransactions()
-        {
-            return _context.Transactions
-                .Include(t => t.Client)
-                .Include(t => t.Package)
-                .ToList();
-        }
+        //public List<Transaction> GetAllTransactions()
+        //{
+        //    return _context.Transactions
+        //        .Include(t => t.Client)
+        //        .Include(t => t.Package)
+        //        .ToList();
+        //}
 
-        public Transaction GetTransactionById(int id)
-        {
-            return _context.Transactions
-                .Include(t => t.Client)
-                .Include(t => t.Package)
-                .FirstOrDefault(t => t.TransactionId == id);
-        }
+        //public Transaction GetTransactionById(int id)
+        //{
+        //    return _context.Transactions
+        //        .Include(t => t.Client)
+        //        .Include(t => t.Package)
+        //        .FirstOrDefault(t => t.TransactionId == id);
+        //}
 
         public void AddTransaction(Transaction transaction)
         {
             // Hitung total harga otomatis dari package
-            var package = _context.Packages.FirstOrDefault(p => p.PackageId == transaction.PackageId);
+            var package = _context.Packages.FirstOrDefault(p => p.Id == transaction.PackageId);
             if (package != null)
-                transaction.TotalPrice = package.Price;
+                transaction.Price = package.Price;
 
             _context.Transactions.Add(transaction);
             _context.SaveChanges();
@@ -51,7 +51,7 @@ namespace CarWash.Services
 
         public void DeleteTransaction(int id)
         {
-            var trans = _context.Transactions.FirstOrDefault(t => t.TransactionId == id);
+            var trans = _context.Transactions.FirstOrDefault(t => t.Id == id);
             if (trans != null)
             {
                 _context.Transactions.Remove(trans);

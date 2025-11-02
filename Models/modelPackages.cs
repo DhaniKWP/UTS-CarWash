@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,8 +11,11 @@ namespace CarWash.Models
 {
     public class Package
     {
-        public int PackageId { get; set; }
-        public string PackageName { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string VehicleType { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
 

@@ -22,82 +22,60 @@ namespace CarWash.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("CarWash.Models.Client", b =>
-                {
-                    b.Property<int>("ClientId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ClientId"));
-
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("PlateNumber")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("VehicleType")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("ClientId");
-
-                    b.ToTable("Clients");
-                });
-
             modelBuilder.Entity("CarWash.Models.Package", b =>
                 {
-                    b.Property<int>("PackageId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("PackageId"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("PackageName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");
 
-                    b.HasKey("PackageId");
+                    b.Property<string>("VehicleType")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Packages");
                 });
 
             modelBuilder.Entity("CarWash.Models.Transaction", b =>
                 {
-                    b.Property<int>("TransactionId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("TransactionId"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("ClientId")
-                        .HasColumnType("integer");
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("PackageId")
                         .HasColumnType("integer");
 
-                    b.Property<decimal>("TotalPrice")
+                    b.Property<string>("PlateNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<decimal>("Price")
                         .HasColumnType("numeric");
 
-                    b.Property<DateTime>("TransactionDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.HasKey("TransactionId");
-
-                    b.HasIndex("ClientId");
+                    b.HasKey("Id");
 
                     b.HasIndex("PackageId");
 
@@ -106,26 +84,13 @@ namespace CarWash.Migrations
 
             modelBuilder.Entity("CarWash.Models.Transaction", b =>
                 {
-                    b.HasOne("CarWash.Models.Client", "Client")
-                        .WithMany("Transactions")
-                        .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("CarWash.Models.Package", "Package")
                         .WithMany("Transactions")
                         .HasForeignKey("PackageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Client");
-
                     b.Navigation("Package");
-                });
-
-            modelBuilder.Entity("CarWash.Models.Client", b =>
-                {
-                    b.Navigation("Transactions");
                 });
 
             modelBuilder.Entity("CarWash.Models.Package", b =>

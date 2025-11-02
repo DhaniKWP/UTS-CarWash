@@ -38,35 +38,37 @@
             // 
             // btnAdd
             // 
-            btnAdd.BackColor = SystemColors.HotTrack;
+            btnAdd.BackColor = Color.DodgerBlue;
+            btnAdd.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAdd.ForeColor = SystemColors.Control;
-            btnAdd.Location = new Point(21, 11);
+            btnAdd.Location = new Point(20, 38);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(171, 34);
+            btnAdd.Size = new Size(171, 62);
             btnAdd.TabIndex = 3;
-            btnAdd.Text = "Tambah transaksi";
+            btnAdd.Text = "New Transaction";
             btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
             // 
             // btnDelete
             // 
-            btnDelete.BackColor = SystemColors.HotTrack;
+            btnDelete.BackColor = Color.Red;
             btnDelete.ForeColor = SystemColors.Control;
-            btnDelete.Location = new Point(230, 11);
+            btnDelete.Location = new Point(229, 38);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(171, 34);
+            btnDelete.Size = new Size(171, 62);
             btnDelete.TabIndex = 4;
-            btnDelete.Text = "Hapus transaksi";
+            btnDelete.Text = "Delete Transaction";
             btnDelete.UseVisualStyleBackColor = false;
             // 
             // dgvTransactions
             // 
-            dgvTransactions.BackgroundColor = SystemColors.Control;
+            dgvTransactions.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvTransactions.BackgroundColor = SystemColors.ControlLight;
             dgvTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvTransactions.Location = new Point(21, 67);
+            dgvTransactions.Location = new Point(20, 143);
             dgvTransactions.Name = "dgvTransactions";
             dgvTransactions.RowHeadersWidth = 62;
-            dgvTransactions.Size = new Size(856, 387);
+            dgvTransactions.Size = new Size(866, 333);
             dgvTransactions.TabIndex = 5;
             dgvTransactions.CellContentClick += dgvTransactions_CellContentClick;
             // 
@@ -81,12 +83,12 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.BackColor = Color.Silver;
-            label2.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.Red;
-            label2.Location = new Point(692, 15);
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Microsoft Sans Serif", 27F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.DodgerBlue;
+            label2.Location = new Point(437, 38);
             label2.Name = "label2";
-            label2.Size = new Size(179, 26);
+            label2.Size = new Size(425, 63);
             label2.TabIndex = 7;
             label2.Text = "TRANSACTION";
             // 
@@ -94,15 +96,15 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveBorder;
-            ClientSize = new Size(899, 476);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(912, 501);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(dgvTransactions);
             Controls.Add(btnDelete);
             Controls.Add(btnAdd);
             Name = "FormTransaction";
-            Text = "FormTransaction";
+            Text = "Transactions";
             Load += FormTransaction_Load;
             ((System.ComponentModel.ISupportInitialize)dgvTransactions).EndInit();
             ResumeLayout(false);

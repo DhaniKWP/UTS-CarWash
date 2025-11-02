@@ -39,79 +39,78 @@
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.BackColor = Color.Silver;
-            lblTitle.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.BackColor = Color.Transparent;
+            lblTitle.Font = new Font("Microsoft Sans Serif", 27F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitle.ForeColor = Color.Red;
-            lblTitle.Location = new Point(753, 21);
-            lblTitle.Margin = new Padding(4, 0, 4, 0);
+            lblTitle.Location = new Point(615, 34);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(404, 36);
+            lblTitle.Size = new Size(707, 63);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "PACKAGE MANAGEMENT";
             lblTitle.TextAlign = ContentAlignment.TopCenter;
-            lblTitle.Click += lblTitle_Click;
             // 
             // btnAdd
             // 
-            btnAdd.BackColor = SystemColors.HotTrack;
+            btnAdd.BackColor = Color.DodgerBlue;
             btnAdd.ForeColor = SystemColors.Control;
-            btnAdd.Location = new Point(12, 13);
-            btnAdd.Margin = new Padding(4, 4, 4, 4);
+            btnAdd.Location = new Point(12, 34);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(146, 44);
+            btnAdd.Size = new Size(171, 62);
             btnAdd.TabIndex = 4;
-            btnAdd.Text = "Tambah";
+            btnAdd.Text = "Create";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnUpdate
             // 
-            btnUpdate.BackColor = SystemColors.HotTrack;
+            btnUpdate.BackColor = Color.Green;
             btnUpdate.ForeColor = SystemColors.Control;
-            btnUpdate.Location = new Point(482, 13);
-            btnUpdate.Margin = new Padding(4, 4, 4, 4);
+            btnUpdate.Location = new Point(406, 34);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(146, 44);
+            btnUpdate.Size = new Size(171, 62);
             btnUpdate.TabIndex = 5;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnDelete
             // 
-            btnDelete.BackColor = SystemColors.HotTrack;
+            btnDelete.BackColor = Color.Red;
             btnDelete.ForeColor = SystemColors.Control;
-            btnDelete.Location = new Point(251, 13);
-            btnDelete.Margin = new Padding(4, 4, 4, 4);
+            btnDelete.Location = new Point(208, 34);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(146, 44);
+            btnDelete.Size = new Size(171, 62);
             btnDelete.TabIndex = 6;
-            btnDelete.Text = "Hapus";
+            btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // dgvPackages
             // 
-            dgvPackages.BackgroundColor = SystemColors.ButtonFace;
+            dgvPackages.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvPackages.BackgroundColor = SystemColors.ControlLight;
             dgvPackages.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPackages.Location = new Point(12, 89);
-            dgvPackages.Margin = new Padding(4, 4, 4, 4);
+            dgvPackages.Location = new Point(12, 132);
             dgvPackages.Name = "dgvPackages";
             dgvPackages.RowHeadersWidth = 62;
-            dgvPackages.Size = new Size(1301, 501);
+            dgvPackages.Size = new Size(1013, 327);
             dgvPackages.TabIndex = 7;
+            dgvPackages.CellContentDoubleClick += dgvPackages_CellDoubleClick;
             // 
             // FormPackage
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(1348, 603);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(1037, 471);
             Controls.Add(dgvPackages);
             Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
             Controls.Add(btnAdd);
             Controls.Add(lblTitle);
-            Margin = new Padding(4, 4, 4, 4);
             Name = "FormPackage";
-            Text = "FormPackage";
+            Text = "Packages";
+            Load += FormPackage_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPackages).EndInit();
             ResumeLayout(false);
             PerformLayout();

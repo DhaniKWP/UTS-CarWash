@@ -1,6 +1,6 @@
 ﻿namespace CarWash
 {
-    partial class Form1
+    partial class WelcomePage
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WelcomePage));
             menuStrip1 = new MenuStrip();
             pACKAGEToolStripMenuItem = new ToolStripMenuItem();
-            cLIENTToolStripMenuItem = new ToolStripMenuItem();
             tRANSAKSIToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -39,49 +39,41 @@
             // 
             menuStrip1.BackColor = SystemColors.ActiveCaption;
             menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { pACKAGEToolStripMenuItem, cLIENTToolStripMenuItem, tRANSAKSIToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { pACKAGEToolStripMenuItem, tRANSAKSIToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1076, 33);
+            menuStrip1.Size = new Size(1076, 46);
             menuStrip1.TabIndex = 4;
             menuStrip1.Text = "menuStrip1";
             // 
             // pACKAGEToolStripMenuItem
             // 
-            pACKAGEToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            pACKAGEToolStripMenuItem.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             pACKAGEToolStripMenuItem.Name = "pACKAGEToolStripMenuItem";
-            pACKAGEToolStripMenuItem.Size = new Size(92, 29);
+            pACKAGEToolStripMenuItem.Size = new Size(134, 42);
             pACKAGEToolStripMenuItem.Text = "Package";
             pACKAGEToolStripMenuItem.Click += pACKAGEToolStripMenuItem_Click;
             // 
-            // cLIENTToolStripMenuItem
-            // 
-            cLIENTToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cLIENTToolStripMenuItem.Name = "cLIENTToolStripMenuItem";
-            cLIENTToolStripMenuItem.Size = new Size(72, 29);
-            cLIENTToolStripMenuItem.Text = "Client";
-            cLIENTToolStripMenuItem.Click += cLIENTToolStripMenuItem_Click;
-            // 
             // tRANSAKSIToolStripMenuItem
             // 
-            tRANSAKSIToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tRANSAKSIToolStripMenuItem.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tRANSAKSIToolStripMenuItem.Name = "tRANSAKSIToolStripMenuItem";
-            tRANSAKSIToolStripMenuItem.Size = new Size(98, 29);
-            tRANSAKSIToolStripMenuItem.Text = "Transaksi";
+            tRANSAKSIToolStripMenuItem.Size = new Size(173, 42);
+            tRANSAKSIToolStripMenuItem.Text = "Transaction";
             tRANSAKSIToolStripMenuItem.Click += tRANSAKSIToolStripMenuItem_Click;
             // 
-            // Form1
+            // WelcomePage
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            BackgroundImage = Properties.Resources.png_clipart_staff_in_the_car_wash_blue_hat_free_buckle_material;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1076, 586);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Margin = new Padding(2);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "WelcomePage";
+            Text = "CarWash Detailing Clean";
             Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -93,6 +85,5 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem tRANSAKSIToolStripMenuItem;
         private ToolStripMenuItem pACKAGEToolStripMenuItem;
-        private ToolStripMenuItem cLIENTToolStripMenuItem;
     }
 }
