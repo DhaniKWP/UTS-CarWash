@@ -32,6 +32,7 @@
             btnDelete = new Button();
             dgvClients = new DataGridView();
             label2 = new Label();
+            btnUpdate = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvClients).BeginInit();
             SuspendLayout();
             // 
@@ -47,6 +48,7 @@
             btnAdd.TabIndex = 4;
             btnAdd.Text = "New Client";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click_1;
             // 
             // btnDelete
             // 
@@ -59,6 +61,7 @@
             btnDelete.TabIndex = 5;
             btnDelete.Text = "Delete Client";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click_1;
             // 
             // dgvClients
             // 
@@ -71,6 +74,7 @@
             dgvClients.RowHeadersWidth = 62;
             dgvClients.Size = new Size(1202, 479);
             dgvClients.TabIndex = 6;
+            dgvClients.CellDoubleClick += dgvClients_CellDoubleClick_1;
             // 
             // label2
             // 
@@ -78,12 +82,25 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Microsoft Sans Serif", 27F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.LawnGreen;
-            label2.Location = new Point(634, 22);
+            label2.Location = new Point(869, 19);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(346, 82);
             label2.TabIndex = 8;
             label2.Text = "CLIENTS";
+            // 
+            // btnUpdate
+            // 
+            btnUpdate.BackColor = Color.Green;
+            btnUpdate.ForeColor = SystemColors.Control;
+            btnUpdate.Location = new Point(562, 22);
+            btnUpdate.Margin = new Padding(4);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(222, 79);
+            btnUpdate.TabIndex = 9;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click_1;
             // 
             // FormClient
             // 
@@ -91,12 +108,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1228, 635);
+            Controls.Add(btnUpdate);
             Controls.Add(label2);
             Controls.Add(dgvClients);
             Controls.Add(btnDelete);
             Controls.Add(btnAdd);
             Name = "FormClient";
             Text = "Clients";
+            Load += FormClient_Load_1;
             ((System.ComponentModel.ISupportInitialize)dgvClients).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -107,5 +126,6 @@
         private Button btnDelete;
         private DataGridView dgvClients;
         private Label label2;
+        private Button btnUpdate;
     }
 }

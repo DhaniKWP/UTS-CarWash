@@ -115,6 +115,7 @@
             btnSubmit.TabIndex = 10;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = false;
+            btnSubmit.Click += btnSubmit_Click_1;
             // 
             // btnCancel
             // 
@@ -127,6 +128,7 @@
             btnCancel.TabIndex = 11;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
             // 
             // FormSubmitClient
             // 
@@ -144,6 +146,7 @@
             Controls.Add(label1);
             Name = "FormSubmitClient";
             Text = "Create New Client";
+            Load += FormSubmitClient_Load_1;
             ResumeLayout(false);
             PerformLayout();
         }
