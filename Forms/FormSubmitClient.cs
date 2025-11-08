@@ -105,6 +105,14 @@ namespace CarWash.Forms
                 return;
             }
 
+            // ✅ Validasi: Phone hanya boleh angka
+            if (!phone.All(char.IsDigit))
+            {
+                MessageBox.Show("Phone number must contain digits only (0-9).", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPhone.Focus();
+                return;
+            }
+
             if (string.IsNullOrEmpty(plate))
             {
                 MessageBox.Show("Plate number is required.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -116,7 +124,7 @@ namespace CarWash.Forms
             {
                 using (var db = new AppDbContext())
                 {
-                    
+                    // Mode create
                     if (ClientId == "create")
                     {
                         var client = new Client
@@ -172,5 +180,6 @@ namespace CarWash.Forms
                 );
             }
         }
+
     }
 }
