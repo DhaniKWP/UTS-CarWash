@@ -71,7 +71,6 @@
             dgvTransactions.RowHeadersWidth = 62;
             dgvTransactions.Size = new Size(866, 333);
             dgvTransactions.TabIndex = 5;
-            dgvTransactions.CellDoubleClick += dgvTransactions_CellDoubleClick;
             // 
             // label1
             // 

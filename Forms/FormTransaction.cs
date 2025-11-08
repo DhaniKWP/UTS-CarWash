@@ -208,34 +208,7 @@ namespace CarWash.Forms
             }
         }
 
-        private void dgvTransactions_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                var selectedRow = dgvTransactions.Rows[e.RowIndex];
-                int transId = Convert.ToInt32(selectedRow.Cells["ID"].Value);
-
-                using (var db = new AppDbContext())
-                {
-                    var trans = db.Transactions.FirstOrDefault(t => t.Id == transId);
-
-                    if (trans != null)
-                    {
-                        using (var form = new FormTransactionDetail())
-                        {
-                            form.TransactionId = trans.Id.ToString();
-
-                            var result = form.ShowDialog();
-
-                            if (result == DialogResult.OK)
-                            {
-                                
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        
         
     }
 }
