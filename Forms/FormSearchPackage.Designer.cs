@@ -43,7 +43,7 @@
             dgvSearchPackage.RowHeadersWidth = 62;
             dgvSearchPackage.Size = new Size(1353, 411);
             dgvSearchPackage.TabIndex = 0;
-            dgvSearchPackage.CellContentDoubleClick += dgvSearchPackage_CellContentDoubleClick;
+            dgvSearchPackage.CellDoubleClick += dgvSearchPackage_CellContentDoubleClick;
             // 
             // btnCancel
             // 

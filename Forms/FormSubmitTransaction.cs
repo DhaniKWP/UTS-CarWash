@@ -41,18 +41,18 @@ namespace CarWash.Forms
         {
             using (var db = new AppDbContext())
             {
-                // Ambil record terakhir berdasarkan ID terbesar
+                
                 var lastTransaction = db.Transactions
                     .OrderByDescending(t => t.Id)
                     .FirstOrDefault();
 
                 string newCode = "";
-                string prefix = "C-" + DateTime.Now.ToString("yyMMdd"); // contoh: C-250211
+                string prefix = "C-" + DateTime.Now.ToString("yyMMdd");
                 int nextNumber = 1;
 
                 if (lastTransaction != null && lastTransaction.Code.StartsWith(prefix))
                 {
-                    // Ambil 4 digit terakhir dan increment
+                    
                     string lastNumberPart = lastTransaction.Code.Substring(lastTransaction.Code.Length - 4);
                     if (int.TryParse(lastNumberPart, out int lastNumber))
                     {
@@ -60,10 +60,10 @@ namespace CarWash.Forms
                     }
                 }
 
-                // Format baru: C-2502110002
+                
                 newCode = $"{prefix}{nextNumber.ToString("D4")}";
 
-                // Tampilkan ke textbox (misal txtCode)
+                
                 txtCode.Text = newCode;
             }
         }
@@ -104,6 +104,10 @@ namespace CarWash.Forms
             string clientid = txtClientId.Text.Trim();
             string packageid = txtPackageId.Text.Trim();
             string price = txtPrice.Text.Trim();
+            price = price.Replace(".", "");
+            int priceVal = 0;
+            if (!string.IsNullOrEmpty(price)) int.TryParse(price, out priceVal);
+
             string msg = string.Empty;
 
             if (string.IsNullOrEmpty(code))
@@ -126,7 +130,7 @@ namespace CarWash.Forms
             {
                 using (var db = new AppDbContext())
                 {
-                    // Jika mode create
+                    
                     if (TransactionId == "create")
                     {
                         var trans = new CarWash.Models.Transaction
@@ -141,34 +145,12 @@ namespace CarWash.Forms
 
                         db.Transactions.Add(trans);
                         db.SaveChanges();
-                        msg = "Package data was saved successfully.";
+                        msg = "Transaction data was saved successfully.";
                     }
                     else
                     {
-                        //if (int.TryParse(TransactionId, out int id))
-                        //{
-                        //    var existing = db.Packages.Find(id);
-
-                        //    if (existing != null)
-                        //    {
-                        //        existing.Name = name;
-                        //        existing.VehicleType = type;
-                        //        existing.Description = $"{name} - {type}";
-                        //        existing.Price = price;
-
-                        //        db.SaveChanges();
-                        //        msg = "Package data was updated successfully.";
-                        //    }
-                        //    else
-                        //    {
-                        //        msg = "Package not found. Update failed.";
-                        //    }
-                        //}
-                        //else
-                        //{
-                        //    msg = "Invalid package ID.";
-                        //}
-                       msg = "Package data was updated successfully.";
+                        
+                       msg = "Transaction data was updated successfully.";
                     }
                 }
 

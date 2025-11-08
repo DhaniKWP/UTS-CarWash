@@ -42,63 +42,56 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(72, 45);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(55, 35);
             label1.Name = "label1";
-            label1.Size = new Size(78, 32);
+            label1.Size = new Size(59, 25);
             label1.TabIndex = 2;
             label1.Text = "Name";
             // 
             // txtName
             // 
-            txtName.Location = new Point(195, 45);
-            txtName.Margin = new Padding(4);
+            txtName.Location = new Point(150, 35);
             txtName.Name = "txtName";
-            txtName.Size = new Size(676, 39);
+            txtName.Size = new Size(521, 31);
             txtName.TabIndex = 3;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(72, 125);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(55, 98);
             label2.Name = "label2";
-            label2.Size = new Size(82, 32);
+            label2.Size = new Size(62, 25);
             label2.TabIndex = 4;
             label2.Text = "Phone";
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(195, 125);
-            txtPhone.Margin = new Padding(4);
+            txtPhone.Location = new Point(150, 98);
             txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(676, 39);
+            txtPhone.Size = new Size(521, 31);
             txtPhone.TabIndex = 5;
             // 
             // txtNoPlat
             // 
-            txtNoPlat.Location = new Point(195, 210);
-            txtNoPlat.Margin = new Padding(4);
+            txtNoPlat.Location = new Point(150, 164);
             txtNoPlat.Name = "txtNoPlat";
-            txtNoPlat.Size = new Size(676, 39);
+            txtNoPlat.Size = new Size(521, 31);
             txtNoPlat.TabIndex = 8;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(72, 217);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(55, 170);
             label4.Name = "label4";
-            label4.Size = new Size(97, 32);
+            label4.Size = new Size(83, 25);
             label4.TabIndex = 7;
-            label4.Text = "No. Plat";
+            label4.Text = "No. Plate";
             // 
             // paramId
             // 
-            paramId.Location = new Point(72, 287);
-            paramId.Margin = new Padding(4);
+            paramId.Location = new Point(55, 224);
             paramId.Name = "paramId";
-            paramId.Size = new Size(110, 41);
+            paramId.Size = new Size(85, 32);
             paramId.TabIndex = 9;
             paramId.Text = "id?";
             paramId.UseVisualStyleBackColor = true;
@@ -108,10 +101,9 @@
             // 
             btnSubmit.BackColor = Color.DodgerBlue;
             btnSubmit.ForeColor = SystemColors.Control;
-            btnSubmit.Location = new Point(395, 315);
-            btnSubmit.Margin = new Padding(4);
+            btnSubmit.Location = new Point(304, 246);
             btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(222, 79);
+            btnSubmit.Size = new Size(171, 62);
             btnSubmit.TabIndex = 10;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = false;
@@ -121,10 +113,9 @@
             // 
             btnCancel.BackColor = Color.Red;
             btnCancel.ForeColor = SystemColors.Control;
-            btnCancel.Location = new Point(649, 315);
-            btnCancel.Margin = new Padding(4);
+            btnCancel.Location = new Point(499, 246);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(222, 79);
+            btnCancel.Size = new Size(171, 62);
             btnCancel.TabIndex = 11;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = false;
@@ -132,9 +123,9 @@
             // 
             // FormSubmitClient
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(935, 459);
+            ClientSize = new Size(719, 359);
             Controls.Add(btnCancel);
             Controls.Add(btnSubmit);
             Controls.Add(paramId);
@@ -144,6 +135,7 @@
             Controls.Add(label2);
             Controls.Add(txtName);
             Controls.Add(label1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "FormSubmitClient";
             Text = "Create New Client";
             Load += FormSubmitClient_Load_1;

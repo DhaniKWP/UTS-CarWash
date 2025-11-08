@@ -44,7 +44,7 @@
             dgvSearchClient.RowHeadersWidth = 62;
             dgvSearchClient.Size = new Size(1340, 437);
             dgvSearchClient.TabIndex = 0;
-            dgvSearchClient.CellContentDoubleClick += dgvSearchClient_CellContentDoubleClick;
+            dgvSearchClient.CellDoubleClick += dgvSearchClient_CellContentDoubleClick;
             // 
             // btnCancel
             // 
@@ -79,7 +79,7 @@
             Controls.Add(btnCancel);
             Controls.Add(dgvSearchClient);
             Name = "FormSearchClient";
-            Text = "FormSearchClient";
+            Text = "Select Client";
             Load += FormSearchClient_Load;
             ((System.ComponentModel.ISupportInitialize)dgvSearchClient).EndInit();
             ResumeLayout(false);

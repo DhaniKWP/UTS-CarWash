@@ -116,7 +116,7 @@ namespace CarWash.Forms
             {
                 using (var db = new AppDbContext())
                 {
-                    // Mode create
+                    
                     if (ClientId == "create")
                     {
                         var client = new Client

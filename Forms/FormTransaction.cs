@@ -46,26 +46,37 @@ namespace CarWash.Forms
                         .Join(db.Packages,
                             t => t.PackageId,
                             p => p.Id,
-                            (t, p) => new
+                            (t, p) => new { t, p })
+                        .Join(db.Clients,
+                            tp => tp.t.ClientId,
+                            c => c.Id,
+                            (tp, c) => new
                             {
-                                t.Id,
-                                t.Code,
-                                Package = p.Description,
-                                t.Price,
-                                t.CreatedAt
+                                tp.t.Id,
+                                tp.t.Code,
+                                Package = tp.p.Description,
+                                tp.t.Price,
+                                tp.t.CreatedAt,
+                                ClientName = c.FullName,
+                                ClientPhone = c.Phone,
+                                ClientPlate = c.PlateNumber
                             })
-                        .OrderByDescending(t => t.Id)
-                        .ToList() // ⬅️ Query SQL dieksekusi di sini (sekali saja)
-                        .Select((t, index) => new
+                        .OrderByDescending(x => x.Id)
+                        .AsEnumerable()
+                        .Select((x, index) => new
                         {
                             No = index + 1,
-                            t.Id,
-                            Code = t.Code,
-                            t.Package,
-                            t.Price,
-                            CreatedAt = t.CreatedAt.ToLocalTime().ToString("dd/MM/yyyy HH:mm")
+                            x.Id,
+                            x.Code,
+                            x.Package,
+                            x.ClientName,
+                            x.ClientPhone,
+                            x.ClientPlate,
+                            Price = x.Price.ToString("N0", new System.Globalization.CultureInfo("id-ID")),
+                            CreatedAt = x.CreatedAt.ToLocalTime().ToString("dd MMMM yyyy 'Pukul' HH:mm", new System.Globalization.CultureInfo("id-ID"))
                         })
-                        .ToList(); // ⬅️ Nomor urut ditambahkan di memori
+                        .ToList();
+
 
 
                     this.Invoke(new Action(() =>
@@ -75,36 +86,40 @@ namespace CarWash.Forms
                         dgvTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
                         dgvTransactions.RowHeadersVisible = false;
 
-                        // 🔹 Buat agar seluruh baris terpilih saat diklik
+
                         dgvTransactions.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                         dgvTransactions.MultiSelect = false;
 
-                        // 🔹 Atur lebar tiap kolom (dalam pixel)
+
                         if (dgvTransactions.Columns.Count > 0)
                         {
-                            dgvTransactions.Columns["No"].Width = 10;
-                            dgvTransactions.Columns["Id"].Width = 10;
-                            dgvTransactions.Columns["Code"].Width = 15;
-                            dgvTransactions.Columns["Package"].Width = 30;
-                            dgvTransactions.Columns["Price"].Width = 20;
-                            dgvTransactions.Columns["CreatedAt"].Width = 20;
+
+                            dgvTransactions.Columns["No"].HeaderText = "NO";
+                            dgvTransactions.Columns["Id"].HeaderText = "ID";
+                            dgvTransactions.Columns["Code"].HeaderText = "CODE";
+                            dgvTransactions.Columns["Package"].HeaderText = "PACKAGE";
+                            dgvTransactions.Columns["ClientName"].HeaderText = "CLIENT NAME";
+                            dgvTransactions.Columns["ClientPhone"].HeaderText = "PHONE NUMBER";
+                            dgvTransactions.Columns["ClientPlate"].HeaderText = "NO. PLATE";
+                            dgvTransactions.Columns["Price"].HeaderText = "PRICE";
+                            dgvTransactions.Columns["CreatedAt"].HeaderText = "CREATED AT";
                         }
 
-                        // 🔹 Atur agar kolom otomatis menyesuaikan lebar tabel
+
                         dgvTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         dgvTransactions.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
-                        // 🔹 Rapiin header tabel
+
                         dgvTransactions.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                         dgvTransactions.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                         dgvTransactions.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
-                        dgvTransactions.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(240, 240, 240); // 🔹 Warna tetap sama
-                        dgvTransactions.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.Black; // 🔹 Teks tidak berubah
+                        dgvTransactions.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(240, 240, 240);
+                        dgvTransactions.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                        // 🔹 Hilangkan baris kosong di akhir
+
                         dgvTransactions.AllowUserToAddRows = false;
 
-                        // 🔹 Buat grid lebih halus
+
                         dgvTransactions.BorderStyle = BorderStyle.None;
                         dgvTransactions.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
                         dgvTransactions.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 120, 215);
@@ -126,7 +141,7 @@ namespace CarWash.Forms
             {
                 form.TransactionId = "create";
 
-                var result = form.ShowDialog(); // tampilkan sebagai popup modal
+                var result = form.ShowDialog();
 
                 if (result == DialogResult.OK)
                 {
@@ -142,7 +157,7 @@ namespace CarWash.Forms
             {
                 int transid = Convert.ToInt32(dgvTransactions.CurrentRow.Cells["Id"].Value);
 
-                // Konfirmasi sebelum hapus
+
                 var confirm = MessageBox.Show(
                     "Are you sure you want to delete this data?",
                     "Confirm Delete",
@@ -156,7 +171,7 @@ namespace CarWash.Forms
                     {
                         var trans = db.Transactions.FirstOrDefault(p => p.Id == transid);
 
-                        if (trans != null) 
+                        if (trans != null)
                         {
                             db.Transactions.Remove(trans);
                             db.SaveChanges();
@@ -192,5 +207,35 @@ namespace CarWash.Forms
                 );
             }
         }
+
+        private void dgvTransactions_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var selectedRow = dgvTransactions.Rows[e.RowIndex];
+                int transId = Convert.ToInt32(selectedRow.Cells["ID"].Value);
+
+                using (var db = new AppDbContext())
+                {
+                    var trans = db.Transactions.FirstOrDefault(t => t.Id == transId);
+
+                    if (trans != null)
+                    {
+                        using (var form = new FormTransactionDetail())
+                        {
+                            form.TransactionId = trans.Id.ToString();
+
+                            var result = form.ShowDialog();
+
+                            if (result == DialogResult.OK)
+                            {
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
     }
 }

@@ -31,10 +31,10 @@ namespace CarWash.Forms
                 loading.Show();
                 loading.Refresh();
 
-                // Jalankan proses load di thread terpisah agar UI tidak freeze
+                
                 await Task.Run(() => LoadPackages());
 
-                // Tutup popup setelah selesai load
+                
                 loading.Close();
             }
         }
@@ -55,47 +55,49 @@ namespace CarWash.Forms
                          Name = p.Name,
                          Type = p.VehicleType,
                          Description = p.Description,
-                         Price = p.Price
+                         //Price = p.Price
+                         Price = p.Price.ToString("N0", new System.Globalization.CultureInfo("id-ID"))
+                         //Price = string.Format(new System.Globalization.CultureInfo("id-ID"), "{0:C}", p.Price)
                      })
                      .ToList();
 
                     this.Invoke(new Action(() =>
                     {
-                        // 🔹 Tampilkan ke DataGridView
+                        
                         dgvPackages.DataSource = packages;
                         dgvPackages.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
                         dgvPackages.RowHeadersVisible = false;
 
-                        // 🔹 Buat agar seluruh baris terpilih saat diklik
+                        
                         dgvPackages.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                         dgvPackages.MultiSelect = false;
 
-                        // 🔹 Atur lebar tiap kolom (dalam pixel)
+                        
                         if (dgvPackages.Columns.Count > 0)
                         {
-                            dgvPackages.Columns["No"].Width = 20;
-                            dgvPackages.Columns["ID"].Width = 20;
-                            dgvPackages.Columns["Name"].Width = 200;
-                            dgvPackages.Columns["Type"].Width = 150;
-                            dgvPackages.Columns["Description"].Width = 300;
-                            dgvPackages.Columns["Price"].Width = 120;
+                            dgvPackages.Columns["No"].HeaderText = "NO";
+                            dgvPackages.Columns["ID"].HeaderText = "ID";
+                            dgvPackages.Columns["Name"].HeaderText = "NAME";
+                            dgvPackages.Columns["Type"].HeaderText = "TYPE";
+                            dgvPackages.Columns["Description"].HeaderText = "DESCRIPTION";
+                            dgvPackages.Columns["Price"].HeaderText = "PRICE";
                         }
 
-                        // 🔹 Atur agar kolom otomatis menyesuaikan lebar tabel
+                       
                         dgvPackages.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         dgvPackages.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
-                        // 🔹 Rapiin header tabel
+                        
                         dgvPackages.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                         dgvPackages.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                         dgvPackages.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
-                        dgvPackages.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(240, 240, 240); // 🔹 Warna tetap sama
-                        dgvPackages.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.Black; // 🔹 Teks tidak berubah
+                        dgvPackages.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(240, 240, 240);
+                        dgvPackages.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                        // 🔹 Hilangkan baris kosong di akhir
+                        
                         dgvPackages.AllowUserToAddRows = false;
 
-                        // 🔹 Buat grid lebih halus
+                        
                         dgvPackages.BorderStyle = BorderStyle.None;
                         dgvPackages.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
                         dgvPackages.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 120, 215);
@@ -118,7 +120,7 @@ namespace CarWash.Forms
             {
                 form.PackageId = "create";
 
-                var result = form.ShowDialog(); // tampilkan sebagai popup modal
+                var result = form.ShowDialog();
 
                 if (result == DialogResult.OK)
                 {
@@ -127,17 +129,17 @@ namespace CarWash.Forms
             }
         }
 
+        
         private void dgvPackages_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) // pastikan baris valid
+            if (e.RowIndex >= 0) 
             {
-                // Ambil nilai kolom dari baris yang diklik
+                
                 var selectedRow = dgvPackages.Rows[e.RowIndex];
                 int pckgId = Convert.ToInt32(selectedRow.Cells["ID"].Value);
 
                 using (var db = new AppDbContext())
                 {
-                    // Cari data lengkap berdasarkan nama paket (lebih baik kalau nanti kamu pakai Id)
                     var pkg = db.Packages.FirstOrDefault(p => p.Id == pckgId);
 
                     if (pkg != null)
@@ -150,7 +152,7 @@ namespace CarWash.Forms
 
                             if (result == DialogResult.OK)
                             {
-                                LoadPackages(); // refresh datagrid setelah edit
+                                LoadPackages(); 
                             }
                         }
                     }
@@ -158,16 +160,17 @@ namespace CarWash.Forms
             }
         }
 
+       
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (dgvPackages.SelectedRows.Count > 0 && dgvPackages.CurrentRow != null && dgvPackages.CurrentRow.Index >= 0)
             {
-                // Ambil nilai kolom dari baris yang 
+                
                 int pckgId = Convert.ToInt32(dgvPackages.CurrentRow.Cells["ID"].Value);
 
                 using (var db = new AppDbContext())
                 {
-                    // Cari data lengkap berdasarkan nama paket (lebih baik kalau nanti kamu pakai Id)
+                    
                     var pkg = db.Packages.FirstOrDefault(p => p.Id == pckgId);
 
                     if (pkg != null)
@@ -180,7 +183,7 @@ namespace CarWash.Forms
 
                             if (result == DialogResult.OK)
                             {
-                                LoadPackages(); // refresh datagrid setelah edit
+                                LoadPackages(); 
                             }
                         }
                     }
@@ -200,13 +203,13 @@ namespace CarWash.Forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            // Pastikan ada baris yang dipilih
+            
             if (dgvPackages.SelectedRows.Count > 0 && dgvPackages.CurrentRow != null && dgvPackages.CurrentRow.Index >= 0)
             {
-                // Ambil ID dari baris aktif
+                
                 int packageId = Convert.ToInt32(dgvPackages.CurrentRow.Cells["ID"].Value);
 
-                // Konfirmasi sebelum hapus
+                
                 var confirm = MessageBox.Show(
                     "Are you sure you want to delete this data?",
                     "Confirm Delete",
@@ -219,13 +222,13 @@ namespace CarWash.Forms
                     using (var db = new AppDbContext())
                     {
                         var pkg = db.Packages.FirstOrDefault(p => p.Id == packageId);
-                        var trans = db.Transactions.FirstOrDefault(t=>t.PackageId == packageId);
+                        var trans = db.Transactions.FirstOrDefault(t => t.PackageId == packageId);
 
                         if (pkg != null)
                         {
-                            if (trans !=null)
+                            if (trans != null)
                             {
-                               MessageBox.Show("Oops..., this data is already in use, you cannot delete it..","Information",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                                MessageBox.Show("Oops..., this data is already in use, you cannot delete it..", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 return;
                             }
 
@@ -264,6 +267,6 @@ namespace CarWash.Forms
             }
         }
 
-       
+        
     }
 }

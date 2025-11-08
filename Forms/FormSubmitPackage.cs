@@ -59,7 +59,7 @@ namespace CarWash.Forms
 
                     if (pkg != null)
                     {
-                        // Isi field form dengan data dari database
+                        
                         txtName.Text = pkg.Name;
                         txtType.Text = pkg.VehicleType;
                         txtPrice.Text = pkg.Price.ToString();
@@ -137,7 +137,7 @@ namespace CarWash.Forms
             {
                 using (var db = new AppDbContext())
                 {
-                    // Jika mode create
+                    
                     if (PackageId == "create")
                     {
                         var pkg = new Package
@@ -180,7 +180,7 @@ namespace CarWash.Forms
                     }
                 }
 
-                // Tampilkan pesan sukses lalu tutup form dengan DialogResult.OK
+                
                 MessageBox.Show(msg, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
                 this.Close();

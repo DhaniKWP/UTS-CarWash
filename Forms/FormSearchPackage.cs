@@ -40,47 +40,47 @@ namespace CarWash.Forms
                          Name = p.Name,
                          Type = p.VehicleType,
                          Description = p.Description,
-                         Price = p.Price
+                         //Price = p.Price
+                         Price = p.Price.ToString("N0", new System.Globalization.CultureInfo("id-ID"))
+                         //Price = string.Format(new System.Globalization.CultureInfo("id-ID"), "{0:C}", p.Price)
                      })
                      .ToList();
 
                     this.Invoke(new Action(() =>
                     {
-                        // 🔹 Tampilkan ke DataGridView
+                        
                         dgvSearchPackage.DataSource = packages;
                         dgvSearchPackage.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
                         dgvSearchPackage.RowHeadersVisible = false;
 
-                        // 🔹 Buat agar seluruh baris terpilih saat diklik
+                        
                         dgvSearchPackage.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                         dgvSearchPackage.MultiSelect = false;
 
-                        // 🔹 Atur lebar tiap kolom (dalam pixel)
+                        
                         if (dgvSearchPackage.Columns.Count > 0)
                         {
-                            dgvSearchPackage.Columns["No"].Width = 20;
-                            dgvSearchPackage.Columns["ID"].Width = 20;
-                            dgvSearchPackage.Columns["Name"].Width = 200;
-                            dgvSearchPackage.Columns["Type"].Width = 150;
-                            dgvSearchPackage.Columns["Description"].Width = 300;
-                            dgvSearchPackage.Columns["Price"].Width = 120;
+                            dgvSearchPackage.Columns["No"].HeaderText = "NO";
+                            dgvSearchPackage.Columns["ID"].HeaderText = "ID";
+                            dgvSearchPackage.Columns["Name"].HeaderText = "NAME";
+                            dgvSearchPackage.Columns["Type"].HeaderText = "TYPE";
+                            dgvSearchPackage.Columns["Description"].HeaderText = "DESCRIPTION";
+                            dgvSearchPackage.Columns["Price"].HeaderText = "PRICE";
                         }
 
-                        // 🔹 Atur agar kolom otomatis menyesuaikan lebar tabel
+                        
                         dgvSearchPackage.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         dgvSearchPackage.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
-                        // 🔹 Rapiin header tabel
+                        
                         dgvSearchPackage.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                         dgvSearchPackage.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                         dgvSearchPackage.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
-                        dgvSearchPackage.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(240, 240, 240); // 🔹 Warna tetap sama
-                        dgvSearchPackage.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.Black; // 🔹 Teks tidak berubah
-
-                        // 🔹 Hilangkan baris kosong di akhir
+                        dgvSearchPackage.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(240, 240, 240);
+                        dgvSearchPackage.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.Black; 
                         dgvSearchPackage.AllowUserToAddRows = false;
 
-                        // 🔹 Buat grid lebih halus
+                        
                         dgvSearchPackage.BorderStyle = BorderStyle.None;
                         dgvSearchPackage.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
                         dgvSearchPackage.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 120, 215);
@@ -104,16 +104,16 @@ namespace CarWash.Forms
         public string SelectedPrice { get; private set; }
         private void dgvSearchPackage_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) // pastikan baris valid
+            if (e.RowIndex >= 0) 
             {
                 var selectedRow = dgvSearchPackage.Rows[e.RowIndex];
 
-                // Ambil ID dan Description
+                
                 SelectedPackageId = selectedRow.Cells["ID"].Value.ToString();
                 SelectedDescription = selectedRow.Cells["Description"].Value.ToString();
                 SelectedPrice = selectedRow.Cells["Price"].Value.ToString();
 
-                this.DialogResult = DialogResult.OK; // Tutup popup dengan hasil OK
+                this.DialogResult = DialogResult.OK; 
                 this.Close();
             }
         }

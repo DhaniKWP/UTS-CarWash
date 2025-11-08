@@ -95,7 +95,7 @@
             dgvPackages.RowHeadersWidth = 62;
             dgvPackages.Size = new Size(1013, 327);
             dgvPackages.TabIndex = 7;
-            dgvPackages.CellContentDoubleClick += dgvPackages_CellDoubleClick;
+            dgvPackages.CellDoubleClick += dgvPackages_CellDoubleClick;
             // 
             // FormPackage
             // 

@@ -20,14 +20,13 @@ namespace CarWash.Forms
             this.FormBorderStyle = FormBorderStyle.None;
         }
 
-        private async void FormClient_Load_1(object sender, EventArgs e)
+        private async void FormClient_Load(object sender, EventArgs e)
         {
             using (var loading = new FormLoading())
             {
                 loading.Show();
                 loading.Refresh();
 
-                // Jalankan proses load di thread terpisah
                 await Task.Run(() => LoadClients());
 
                 loading.Close();
@@ -64,11 +63,11 @@ namespace CarWash.Forms
 
                         if (dgvClients.Columns.Count > 0)
                         {
-                            dgvClients.Columns["No"].Width = 40;
-                            dgvClients.Columns["ID"].Width = 40;
-                            dgvClients.Columns["Name"].Width = 200;
-                            dgvClients.Columns["Phone"].Width = 150;
-                            dgvClients.Columns["PlateNumber"].Width = 120;
+                            dgvClients.Columns["No"].HeaderText ="NO";
+                            dgvClients.Columns["ID"].HeaderText = "NO";
+                            dgvClients.Columns["Name"].HeaderText = "NAME";
+                            dgvClients.Columns["Phone"].HeaderText="PHONE";
+                            dgvClients.Columns["PlateNumber"].HeaderText = "NO.PLATE";
                         }
 
                         dgvClients.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -96,7 +95,7 @@ namespace CarWash.Forms
             }
         }
 
-        private void btnAdd_Click_1(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             using (var form = new FormSubmitClient())
             {
@@ -111,7 +110,7 @@ namespace CarWash.Forms
             }
         }
 
-        private void dgvClients_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dgvClients_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -140,7 +139,7 @@ namespace CarWash.Forms
             }
         }
 
-        private void btnUpdate_Click_1(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (dgvClients.SelectedRows.Count > 0 && dgvClients.CurrentRow != null && dgvClients.CurrentRow.Index >= 0)
             {
@@ -177,8 +176,9 @@ namespace CarWash.Forms
             }
         }
 
-        private void btnDelete_Click_1(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
+
             if (dgvClients.SelectedRows.Count > 0 && dgvClients.CurrentRow != null && dgvClients.CurrentRow.Index >= 0)
             {
                 int clientId = Convert.ToInt32(dgvClients.CurrentRow.Cells["ID"].Value);
@@ -244,5 +244,7 @@ namespace CarWash.Forms
                 );
             }
         }
+
+       
     }
 }

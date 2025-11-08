@@ -41,40 +41,37 @@
             btnAdd.BackColor = Color.DodgerBlue;
             btnAdd.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAdd.ForeColor = SystemColors.Control;
-            btnAdd.Location = new Point(13, 22);
-            btnAdd.Margin = new Padding(4);
+            btnAdd.Location = new Point(10, 17);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(222, 79);
+            btnAdd.Size = new Size(171, 62);
             btnAdd.TabIndex = 4;
             btnAdd.Text = "New Client";
             btnAdd.UseVisualStyleBackColor = false;
-            btnAdd.Click += btnAdd_Click_1;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnDelete
             // 
             btnDelete.BackColor = Color.Red;
             btnDelete.ForeColor = SystemColors.Control;
-            btnDelete.Location = new Point(287, 22);
-            btnDelete.Margin = new Padding(4);
+            btnDelete.Location = new Point(221, 17);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(222, 79);
+            btnDelete.Size = new Size(171, 62);
             btnDelete.TabIndex = 5;
             btnDelete.Text = "Delete Client";
             btnDelete.UseVisualStyleBackColor = false;
-            btnDelete.Click += btnDelete_Click_1;
+            btnDelete.Click += btnDelete_Click;
             // 
             // dgvClients
             // 
             dgvClients.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvClients.BackgroundColor = SystemColors.ControlLight;
             dgvClients.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvClients.Location = new Point(13, 143);
-            dgvClients.Margin = new Padding(4);
+            dgvClients.Location = new Point(10, 112);
             dgvClients.Name = "dgvClients";
             dgvClients.RowHeadersWidth = 62;
-            dgvClients.Size = new Size(1202, 479);
+            dgvClients.Size = new Size(925, 374);
             dgvClients.TabIndex = 6;
-            dgvClients.CellDoubleClick += dgvClients_CellDoubleClick_1;
+            dgvClients.CellDoubleClick += dgvClients_CellDoubleClick;
             // 
             // label2
             // 
@@ -82,10 +79,9 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Microsoft Sans Serif", 27F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.LawnGreen;
-            label2.Location = new Point(869, 19);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(668, 15);
             label2.Name = "label2";
-            label2.Size = new Size(346, 82);
+            label2.Size = new Size(262, 63);
             label2.TabIndex = 8;
             label2.Text = "CLIENTS";
             // 
@@ -93,29 +89,29 @@
             // 
             btnUpdate.BackColor = Color.Green;
             btnUpdate.ForeColor = SystemColors.Control;
-            btnUpdate.Location = new Point(562, 22);
-            btnUpdate.Margin = new Padding(4);
+            btnUpdate.Location = new Point(432, 17);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(222, 79);
+            btnUpdate.Size = new Size(171, 62);
             btnUpdate.TabIndex = 9;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
-            btnUpdate.Click += btnUpdate_Click_1;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // FormClient
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1228, 635);
+            ClientSize = new Size(945, 496);
             Controls.Add(btnUpdate);
             Controls.Add(label2);
             Controls.Add(dgvClients);
             Controls.Add(btnDelete);
             Controls.Add(btnAdd);
+            Margin = new Padding(2);
             Name = "FormClient";
             Text = "Clients";
-            Load += FormClient_Load_1;
+            Load += FormClient_Load;
             ((System.ComponentModel.ISupportInitialize)dgvClients).EndInit();
             ResumeLayout(false);
             PerformLayout();

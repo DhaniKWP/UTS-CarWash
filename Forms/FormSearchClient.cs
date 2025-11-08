@@ -38,45 +38,47 @@ namespace CarWash.Forms
                          No = index + 1,
                          ID = p.Id,
                          Name = p.FullName,
+                         Phone = p.Phone,
                          Plate = p.PlateNumber
                      })
                      .ToList();
 
                     this.Invoke(new Action(() =>
                     {
-                        // 🔹 Tampilkan ke DataGridView
+                        
                         dgvSearchClient.DataSource = client;
                         dgvSearchClient.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
                         dgvSearchClient.RowHeadersVisible = false;
 
-                        // 🔹 Buat agar seluruh baris terpilih saat diklik
+                        
                         dgvSearchClient.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                         dgvSearchClient.MultiSelect = false;
 
-                        // 🔹 Atur lebar tiap kolom (dalam pixel)
+                        
                         if (dgvSearchClient.Columns.Count > 0)
                         {
-                            dgvSearchClient.Columns["No"].Width = 20;
-                            dgvSearchClient.Columns["ID"].Width = 20;
-                            dgvSearchClient.Columns["Name"].Width = 200;
-                            dgvSearchClient.Columns["Plate"].Width = 150;
+                            dgvSearchClient.Columns["No"].HeaderText = "NO";
+                            dgvSearchClient.Columns["ID"].HeaderText = "NO";
+                            dgvSearchClient.Columns["Name"].HeaderText = "NAME";
+                            dgvSearchClient.Columns["Phone"].HeaderText = "PHONE";
+                            dgvSearchClient.Columns["Plate"].HeaderText = "NO.PLATE";
                         }
 
-                        // 🔹 Atur agar kolom otomatis menyesuaikan lebar tabel
+                        
                         dgvSearchClient.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         dgvSearchClient.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
-                        // 🔹 Rapiin header tabel
+                        
                         dgvSearchClient.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                         dgvSearchClient.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                         dgvSearchClient.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
-                        dgvSearchClient.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(240, 240, 240); // 🔹 Warna tetap sama
-                        dgvSearchClient.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.Black; // 🔹 Teks tidak berubah
+                        dgvSearchClient.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(240, 240, 240); 
+                        dgvSearchClient.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.Black; 
 
-                        // 🔹 Hilangkan baris kosong di akhir
+                        
                         dgvSearchClient.AllowUserToAddRows = false;
 
-                        // 🔹 Buat grid lebih halus
+                        
                         dgvSearchClient.BorderStyle = BorderStyle.None;
                         dgvSearchClient.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
                         dgvSearchClient.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 120, 215);

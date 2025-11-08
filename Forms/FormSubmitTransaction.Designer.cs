@@ -111,6 +111,7 @@
             paramId.Size = new Size(64, 31);
             paramId.TabIndex = 8;
             paramId.Text = "id?";
+            paramId.Visible = false;
             // 
             // txtCode
             // 
